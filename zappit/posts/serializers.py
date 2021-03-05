@@ -3,6 +3,9 @@ from .models import Post, Vote
 
 
 class PostSerializer(serializers.ModelSerializer):
+    # Make the posted_by field Read-only
+    posted_by = serializers.ReadOnlyField(source='posted_by.username')
+
     class Meta:
         model = Post
         fields = ['id', 'title', 'url', 'posted_by', 'created']

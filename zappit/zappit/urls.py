@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('posts.urls')),
     path('api/posts', views.PostList.as_view(), name='post_list'),
+    path('api/posts/<int:pk>/vote', views.VoteCreate.as_view(), name='vote'),
 ]

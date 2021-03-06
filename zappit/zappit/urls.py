@@ -21,6 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('posts.urls')),
     path('api/posts', views.PostList.as_view(), name='post_list'),
+    path('api/posts/<int:pk>', views.PostRetrieveDestroy.as_view(), name='post_delete'),
     path('api/posts/<int:pk>/vote', views.VoteCreate.as_view(), name='vote'),
     path('api-auth/', include('rest_framework.urls')),
 ]
